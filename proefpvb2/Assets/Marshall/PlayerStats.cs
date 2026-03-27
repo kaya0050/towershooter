@@ -11,11 +11,6 @@ public class PlayerStats : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform bulletSpawnpoint;
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         TakingDamage();
