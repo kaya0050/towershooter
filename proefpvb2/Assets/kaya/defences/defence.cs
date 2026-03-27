@@ -1,22 +1,66 @@
 using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class defence : MonoBehaviour
 {
     public int price;
     public int sellPrice;
 
+    public float range;
+    public int firerate;
+    private int timer;
+
+    public GameObject bullet;
+    public GameObject bulletpoint;
+
     public GameObject[] enemies;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        timer = firerate;
     }
 
     // Update is called once per frame
     void Update()
     {
         enemies = GameObject.FindGameObjectsWithTag("enemy");
+    }
+    private void FixedUpdate()
+    {
+        timer--;
+        
+        if (timer <= 0)
+        {
+            GameObject target = GetClosestEnemy();
+            if (target != null)
+            {
+                Vector3 direction = (target.transform.position - bulletpoint.transform.position).normalized;
+                Quaternion rotation = Quaternion.LookRotation(direction);
+                GameObject b = Instantiate(bullet, bulletpoint.transform.position, rotation);
+
+            }
+
+            timer = firerate;
+        }
+    }
+    GameObject GetClosestEnemy()
+    {
+        GameObject closest = null;
+        float minDistance = range;
+
+        foreach (GameObject enemy in enemies)
+        {
+            float distance = Vector3.Distance(transform.position, enemy.transform.position);
+
+            if (distance < minDistance)
+            {
+                minDistance = distance;
+                closest = enemy;
+            }
+        }
+
+        return closest;
     }
 }
