@@ -10,6 +10,7 @@ public class PlayerStats : MonoBehaviour
 
     public GameObject bulletPrefab;
     public Transform bulletSpawnpoint;
+    public Transform respawnPoint;
 
     void Update()
     {
@@ -46,7 +47,9 @@ public class PlayerStats : MonoBehaviour
 
     public void Respawn()
     {
-        //Teleport player naar een spawnpoint met volle health.
+        transform.position = respawnPoint.position + new Vector3(0, 1f, 0);
+        transform.rotation = respawnPoint.rotation;
+        health = 100;
     }
 
     private void OnTriggerEnter(Collider other)
