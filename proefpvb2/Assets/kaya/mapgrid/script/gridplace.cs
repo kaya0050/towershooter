@@ -1,8 +1,10 @@
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 public class gridplace : MonoBehaviour
 {
+    public manager Manager;
     public GameObject objectToPlace;
     public float gridSize = 1;
 
@@ -16,42 +18,65 @@ public class gridplace : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetPlaceMarkerGridPos();
+        RaycastHit hit = RAY();
+        GetPlaceMarkerGridPos(hit);
 
         if (Input.GetMouseButtonDown(0))
         {
-            PlaceMarker();
+            PlaceMarker(hit);
         }
     }
-    void GetPlaceMarkerGridPos()
+    void GetPlaceMarkerGridPos(RaycastHit hit)
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        
 
-        if(Physics.Raycast(ray, out RaycastHit hit))
-        {
-            Vector3 location = hit.point;
-            Vector3 gridLockedPos = new Vector3(
-                Mathf.Round(location.x/gridSize) * gridSize,
-                Mathf.Round(location.y / gridSize) * gridSize,
-                Mathf.Round(location.z / gridSize) * gridSize
+        Vector3 location = hit.point;
 
+        Vector3 gridLockedPos = new Vector3(
+            Mathf.Round(location.x / gridSize) * gridSize,
+            0,
+            Mathf.Round(location.z / gridSize) * gridSize
+        );
 
-            );
-
-            placeMarker.transform.position = gridLockedPos;
-        }
+        placeMarker.transform.position = gridLockedPos;
     }
 
-    void PlaceMarker()
+    void PlaceMarker(RaycastHit hit)
     {
         Vector3 placementPos = placeMarker.transform.position;
 
         if(!occupiedTiles.Contains(placementPos))
         {
-            Instantiate(objectToPlace,placementPos,Quaternion.identity);
+            defence currentDefence = objectToPlace.GetComponent<defence>();
+            if (Manager.resources > currentDefence.price)
+            {
+                Instantiate(objectToPlace, placementPos, Quaternion.identity);
 
-            occupiedTiles.Add(placementPos);
+                occupiedTiles.Add(placementPos);
+                Manager.resources -= currentDefence.price;
+            }
+           
         }
+        else
+        {
+
+            GameObject thattile = hit.collider.gameObject;
+            //check op tags zodat hij niet andere gameobjects verwijdert
+            if (thattile.tag == "defence")
+            {
+                defence deletingTile = thattile.GetComponent<defence>();
+                occupiedTiles.Remove(thattile.transform.position);
+                Destroy(thattile);
+                Manager.resources += deletingTile.sellPrice;
+
+            }
+        }
+    }
+    RaycastHit RAY()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Physics.Raycast(ray, out RaycastHit hit);
+        return hit;
     }
    
 }
