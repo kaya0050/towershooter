@@ -1,9 +1,13 @@
+using NUnit.Framework;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class defence : MonoBehaviour
 {
     public int price;
     public int sellPrice;
+
+    public GameObject[] enemies;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -13,6 +17,6 @@ public class defence : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        enemies = GameObject.FindGameObjectsWithTag("enemy");
     }
 }
