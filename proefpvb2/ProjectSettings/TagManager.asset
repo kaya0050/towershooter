@@ -7,12 +7,13 @@ TagManager:
   - marker
   - floor
   - defence
-  - enemy
+  - Bullet
+  - Enemy
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
   - 
