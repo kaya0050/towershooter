@@ -241,6 +241,7 @@ GameObject:
   - component: {fileID: 723550241}
   - component: {fileID: 723550240}
   - component: {fileID: 723550243}
+  - component: {fileID: 723550244}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -316,7 +317,7 @@ Transform:
   m_GameObject: {fileID: 723550239}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 9.97, z: -2.5314107}
+  m_LocalPosition: {x: 0, y: 10, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -461,6 +462,20 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
+--- !u!114 &723550244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 723550239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5db25be7cd4bf743bcfc15a91ceaa00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxZoom: 1
+  minZoom: 50
 --- !u!1 &782281314
 GameObject:
   m_ObjectHideFlags: 0
@@ -493,7 +508,6 @@ MonoBehaviour:
   resources: 100
   switchkey: 113
   gridplace: {fileID: 1431868170}
-  defenceToPlace: {fileID: 0}
   defences:
   - {fileID: 3144005980974766079, guid: 644eeccd8e382a2488ef38b98738a4fd, type: 3}
   - {fileID: 3144005980974766079, guid: c3bdc1113f5c14447bfbe20547b54009, type: 3}

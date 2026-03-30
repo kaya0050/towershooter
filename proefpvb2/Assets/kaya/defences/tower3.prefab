@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 1166588093430851766}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.10797119, y: 1.697856, z: -0.07207841}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -141,8 +141,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 2.5, z: 1}
-  m_Center: {x: 0, y: 0.75, z: 0}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3781585685298889710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,7 +160,7 @@ MonoBehaviour:
   sellPrice: 5
   range: 1000
   firerate: 50
-  bullet: {fileID: 8622243900623563368, guid: e658dfd1dc3d42d4181637db03b07411, type: 3}
+  bullet: {fileID: 8622243900623563368, guid: 45fdbac4b80d618488261259046d1c68, type: 3}
   bulletpoint: {fileID: 1166588093430851766}
   enemies: []
 --- !u!1 &4560894516273229486
@@ -174,7 +174,6 @@ GameObject:
   - component: {fileID: 7903763362438333968}
   - component: {fileID: 1522741193577302616}
   - component: {fileID: 3156085733735447279}
-  - component: {fileID: 6064333988241723958}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: defence
@@ -250,27 +249,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &6064333988241723958
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4560894516273229486}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8126428787239236070
 GameObject:
   m_ObjectHideFlags: 0
@@ -282,7 +260,6 @@ GameObject:
   - component: {fileID: 8525819526305550518}
   - component: {fileID: 4249007150011383748}
   - component: {fileID: 6408996964377092800}
-  - component: {fileID: 7114134200433693456}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: defence
@@ -358,26 +335,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &7114134200433693456
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8126428787239236070}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
