@@ -25,7 +25,6 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
-        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()
