@@ -34,7 +34,7 @@ public class gridplace : MonoBehaviour
 
         Vector3 gridLockedPos = new Vector3(
             Mathf.Round(location.x / gridSize) * gridSize,
-            0,
+            gameObject.transform.position.y,
             Mathf.Round(location.z / gridSize) * gridSize
         );
 

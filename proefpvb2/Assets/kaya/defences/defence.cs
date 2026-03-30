@@ -43,7 +43,7 @@ public class defence : MonoBehaviour
                 {
                     Vector3 direction = (target.transform.position - bulletpoint.transform.position).normalized;
                     Quaternion rotation = Quaternion.LookRotation(direction);
-                    GameObject b = Instantiate(bullet, bulletpoint.transform.position, rotation,this.transform);
+                    Instantiate(bullet, bulletpoint.transform.position, rotation,this.transform);
 
                 }
 
