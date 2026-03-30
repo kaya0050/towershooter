@@ -5,8 +5,11 @@ public class PlayerStats : MonoBehaviour
     public int health = 100;
 
     public bool bijEnemy = false;
+    public bool bijSmallEnemy = false;
+    public bool bijBigEnemy = false;
 
     public float takingDamageTimer = 0f;
+    public float fireCooldown = 0f;
 
     public GameObject bulletPrefab;
     public Transform bulletSpawnpoint;
@@ -16,26 +19,37 @@ public class PlayerStats : MonoBehaviour
     {
         TakingDamage();
         Schieten();
+
+        fireCooldown -= Time.deltaTime;
     }
 
     public void Schieten()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && fireCooldown <= 0)
         {
             Instantiate(bulletPrefab, bulletSpawnpoint.position, bulletSpawnpoint.rotation);
+            fireCooldown = .5f;
         }
     }
 
     public void TakingDamage()
     {
-        if (bijEnemy)
+        if (bijEnemy || bijBigEnemy || bijSmallEnemy)
         {
             takingDamageTimer -= Time.deltaTime;
         }
 
-        if (takingDamageTimer < 0)
+        if (takingDamageTimer < 0 && bijEnemy)
         {
             health -= 35;
+            takingDamageTimer = 2f;
+        } else if (takingDamageTimer < 0 && bijBigEnemy)
+        {
+            health -= 49;
+            takingDamageTimer = 2f;
+        } else if (takingDamageTimer < 0 && bijSmallEnemy)
+        {
+            health -= 20;
             takingDamageTimer = 2f;
         }
 
@@ -59,6 +73,12 @@ public class PlayerStats : MonoBehaviour
             case "Enemy":
                 bijEnemy = true;
                 break;
+            case "smallEnemy":
+                bijSmallEnemy = true;
+                break;
+            case "BigEnemy":
+                bijBigEnemy = true;
+                break;
         }
     }
 
@@ -68,6 +88,14 @@ public class PlayerStats : MonoBehaviour
         {
             case "Enemy":
                 bijEnemy = false;
+                takingDamageTimer = 2f;
+                break;
+            case "smallEnemy":
+                bijSmallEnemy = false;
+                takingDamageTimer = 2f;
+                break;
+            case "BigEnemy":
+                bijBigEnemy = false;
                 takingDamageTimer = 2f;
                 break;
         }

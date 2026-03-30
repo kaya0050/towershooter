@@ -2,13 +2,15 @@ using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public int hoeveelheid;
+
+    public GameObject[] Enemies;
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         
