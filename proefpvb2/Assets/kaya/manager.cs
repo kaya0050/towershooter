@@ -8,12 +8,12 @@ public class manager : MonoBehaviour
 
     public gridplace gridplace;
 
-    public GameObject defenceToPlace;
+    private GameObject defenceToPlace;
     public List<GameObject> defences;
 
     void Start()
     {
-        
+        defenceToPlace = defences[0];
     }
 
     void Update()
