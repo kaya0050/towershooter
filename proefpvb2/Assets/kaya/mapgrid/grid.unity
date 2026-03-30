@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 287464994}
   m_Layer: 0
   m_Name: enemytest (1)
-  m_TagString: enemy
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -491,6 +491,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resources: 100
+  switchkey: 113
+  gridplace: {fileID: 1431868170}
+  defenceToPlace: {fileID: 0}
+  defences:
+  - {fileID: 3144005980974766079, guid: 644eeccd8e382a2488ef38b98738a4fd, type: 3}
+  - {fileID: 3144005980974766079, guid: c3bdc1113f5c14447bfbe20547b54009, type: 3}
+  - {fileID: 3144005980974766079, guid: 0da019d8438634b419a8c33e03cdb3d8, type: 3}
 --- !u!4 &782281316
 Transform:
   m_ObjectHideFlags: 0
@@ -726,7 +733,7 @@ GameObject:
   - component: {fileID: 2012325639}
   m_Layer: 0
   m_Name: enemytest
-  m_TagString: enemy
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 2562228952234278597}
   - component: {fileID: 3781585685298889710}
   m_Layer: 0
-  m_Name: tower
+  m_Name: tower2
   m_TagString: defence
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -155,6 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05688b16af38aaa4e8dc5c17b63bf887, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 0
   price: 10
   sellPrice: 5
   range: 1000
@@ -227,7 +228,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 73c176f402d2c2f4d929aa5da7585d17, type: 2}
+  - {fileID: 2100000, guid: 3da024311d59beb41b762e3ba6e78108, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
