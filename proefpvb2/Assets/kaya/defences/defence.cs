@@ -28,7 +28,7 @@ public class defence : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        enemies = GameObject.FindGameObjectsWithTag("enemy");
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
     }
     private void FixedUpdate()
     {

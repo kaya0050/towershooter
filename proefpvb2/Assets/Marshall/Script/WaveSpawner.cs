@@ -1,8 +1,10 @@
 using UnityEngine;
 
-public class manager : MonoBehaviour
+public class WaveSpawner : MonoBehaviour
 {
-    public int resources;
+    public int hoeveelheid;
+
+    public GameObject[] Enemies;
 
     void Start()
     {
