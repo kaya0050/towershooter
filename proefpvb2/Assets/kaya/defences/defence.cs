@@ -5,6 +5,9 @@ using static UnityEngine.GraphicsBuffer;
 
 public class defence : MonoBehaviour
 {
+
+    public bool active = false;
+
     public int price;
     public int sellPrice;
 
@@ -29,26 +32,31 @@ public class defence : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        timer--;
-        
-        if (timer <= 0)
+        if (active)
         {
-            GameObject target = GetClosestEnemy();
-            if (target != null)
+            timer--;
+
+            if (timer <= 0)
             {
-                Vector3 direction = (target.transform.position - bulletpoint.transform.position).normalized;
-                Quaternion rotation = Quaternion.LookRotation(direction);
-                GameObject b = Instantiate(bullet, bulletpoint.transform.position, rotation);
+                GameObject target = GetClosestEnemy();
+                if (target != null)
+                {
+                    Vector3 direction = (target.transform.position - bulletpoint.transform.position).normalized;
+                    Quaternion rotation = Quaternion.LookRotation(direction);
+                    GameObject b = Instantiate(bullet, bulletpoint.transform.position, rotation,this.transform);
 
+                }
+
+                timer = firerate;
             }
-
-            timer = firerate;
         }
+       
     }
     GameObject GetClosestEnemy()
     {
         GameObject closest = null;
         float minDistance = range;
+
 
         foreach (GameObject enemy in enemies)
         {
