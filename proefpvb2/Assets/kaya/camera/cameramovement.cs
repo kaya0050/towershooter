@@ -17,17 +17,14 @@ public class cameramovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (cam.orthographicSize > maxZoom && cam.orthographicSize < minZoom)
+        if (cam.orthographicSize >= maxZoom && cam.orthographicSize <= minZoom)
         {
             mouseZoom = Input.mouseScrollDelta.y;
             cam.orthographicSize -= mouseZoom;
-        }
-        else
-        {
-            cam.orthographicSize = 15;
+            cam.orthographicSize = Mathf.Clamp(cam.orthographicSize, maxZoom, minZoom);
         }
 
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButton(2))
         {
             float mouseX = Input.GetAxis("Mouse X");
             float mouseY = Input.GetAxis("Mouse Y");

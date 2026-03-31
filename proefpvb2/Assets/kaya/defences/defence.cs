@@ -5,6 +5,9 @@ using static UnityEngine.GraphicsBuffer;
 
 public class defence : MonoBehaviour
 {
+    public bool canUpgrade;
+    public GameObject upgradedTower;
+    public int upgradecost;
 
     public bool active = false;
 
@@ -70,5 +73,12 @@ public class defence : MonoBehaviour
         }
 
         return closest;
+    }
+    public void Upgrade()
+    {
+
+        Instantiate(upgradedTower,gameObject.transform.position,gameObject.transform.rotation);
+        Destroy(gameObject);
+        
     }
 }
