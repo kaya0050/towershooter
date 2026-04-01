@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PhaseSwitchScript : MonoBehaviour
 {
+    public WaveSpawner waveSpawner;
     public Camera firstPerson;
     public Camera topView;
     public GameObject player;
@@ -17,6 +18,7 @@ public class PhaseSwitchScript : MonoBehaviour
 
     public void Bouwfase()
     {
+        Cursor.lockState = CursorLockMode.None;
         player.SetActive(false);
         topView.enabled = true;
         firstPerson.enabled = false;
@@ -25,9 +27,12 @@ public class PhaseSwitchScript : MonoBehaviour
 
     public void Verdedigingsfase()
     {
+        Cursor.lockState= CursorLockMode.Locked;
         gridplace.enabled = false;
         player.SetActive(true);
         topView.enabled = false;
         firstPerson.enabled = true;
+
+        StartCoroutine(waveSpawner.StartNextWave());
     }
 }

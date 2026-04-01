@@ -73,7 +73,7 @@ public class PlayerStats : MonoBehaviour
             case "Enemy":
                 bijEnemy = true;
                 break;
-            case "smallEnemy":
+            case "SmallEnemy":
                 bijSmallEnemy = true;
                 break;
             case "BigEnemy":
@@ -90,7 +90,7 @@ public class PlayerStats : MonoBehaviour
                 bijEnemy = false;
                 takingDamageTimer = 2f;
                 break;
-            case "smallEnemy":
+            case "SmallEnemy":
                 bijSmallEnemy = false;
                 takingDamageTimer = 2f;
                 break;

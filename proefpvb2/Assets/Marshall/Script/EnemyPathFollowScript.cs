@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 public class EnemyPathFollowScript : MonoBehaviour
@@ -7,6 +8,16 @@ public class EnemyPathFollowScript : MonoBehaviour
     public float rotationSpeed = 5f;
 
     private int currentWaypointIndex = 0;
+
+    private void Start()
+    {
+        GameObject[] waypointObjects = GameObject.FindGameObjectsWithTag("checkpoint");
+
+        waypoints = waypointObjects
+            .OrderBy(wp => wp.name)
+            .Select(wp => wp.transform)
+            .ToArray();
+    }
 
     void Update()
     {

@@ -9,6 +9,9 @@ TagManager:
   - defence
   - Bullet
   - Enemy
+  - BigEnemy
+  - SmallEnemy
+  - checkpoint
   layers:
   - Default
   - TransparentFX

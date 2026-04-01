@@ -20,6 +20,14 @@ public class DoelScript : MonoBehaviour
                 Destroy(other.gameObject);
                 health -= 35;
                 break;
+            case "BigEnemy":
+                Destroy(other.gameObject);
+                health -= 49;
+                break;
+            case "SmallEnemy":
+                Destroy(other.gameObject);
+                health -= 20;
+                break;
         }
     }
 }

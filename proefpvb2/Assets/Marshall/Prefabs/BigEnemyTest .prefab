@@ -17,8 +17,8 @@ GameObject:
   - component: {fileID: 1162065178582483040}
   - component: {fileID: 6411995942057595011}
   m_Layer: 0
-  m_Name: EnemyTest
-  m_TagString: Enemy
+  m_Name: 'BigEnemyTest '
+  m_TagString: BigEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -145,7 +145,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f6f96984fbdaa145866e3847474d56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoints: []
+  waypoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   speed: 5
   rotationSpeed: 5
 --- !u!54 &1162065178582483040
