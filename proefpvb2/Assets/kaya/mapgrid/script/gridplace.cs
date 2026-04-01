@@ -1,6 +1,8 @@
 using System.Collections.Generic;
+using System.Linq;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
+using static UnityEditor.FilePathAttribute;
 
 public class gridplace : MonoBehaviour
 {
@@ -9,10 +11,21 @@ public class gridplace : MonoBehaviour
     public float gridSize = 1;
 
     public GameObject placeMarker;
+    public GameObject checkPointMarker;
     private List<Vector3> occupiedTiles = new List<Vector3>();
+    bool upgrade = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        GameObject[] checkpoints = GameObject.FindGameObjectsWithTag("checkpoint");
+        foreach (var item in checkpoints)
+        {
+            Vector3 placePos = GetGridLockedPos(item.transform.position);
+            item.transform.position = placePos;
+            occupiedTiles.Add(placePos);
+
+            Instantiate(checkPointMarker,placePos,gameObject.transform.rotation);
+        }
         
     }
     // Update is called once per frame
@@ -23,29 +36,35 @@ public class gridplace : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
+            upgrade = false;
+            PlaceMarker(hit);
+        }
+        if (Input.GetMouseButtonDown(1))
+        {
+            upgrade = true;
             PlaceMarker(hit);
         }
     }
     void GetPlaceMarkerGridPos(RaycastHit hit)
     {
-        
-
         Vector3 location = hit.point;
 
+        placeMarker.transform.position = GetGridLockedPos(location);
+    }
+    Vector3 GetGridLockedPos(Vector3 location)
+    {
         Vector3 gridLockedPos = new Vector3(
             Mathf.Round(location.x / gridSize) * gridSize,
-            0,
+            gameObject.transform.position.y,
             Mathf.Round(location.z / gridSize) * gridSize
         );
-
-        placeMarker.transform.position = gridLockedPos;
+        return gridLockedPos;
     }
-
     void PlaceMarker(RaycastHit hit)
     {
         Vector3 placementPos = placeMarker.transform.position;
 
-        if(!occupiedTiles.Contains(placementPos))
+        if(!occupiedTiles.Contains(placementPos) && !upgrade)
         {
             defence currentDefence = objectToPlace.GetComponent<defence>();
             if (Manager.resources > currentDefence.price)
@@ -59,15 +78,33 @@ public class gridplace : MonoBehaviour
         }
         else
         {
-
+            
             GameObject thattile = hit.collider.gameObject;
             //check op tags zodat hij niet andere gameobjects verwijdert
             if (thattile.tag == "defence")
             {
+                
                 defence deletingTile = thattile.GetComponent<defence>();
-                occupiedTiles.Remove(thattile.transform.position);
-                Destroy(thattile);
-                Manager.resources += deletingTile.sellPrice;
+                if (upgrade && deletingTile.canUpgrade)
+                {
+                    if (Manager.resources > deletingTile.upgradecost)
+                    {
+                        Manager.resources -= deletingTile.upgradecost;
+                        deletingTile.Upgrade();
+                    }
+                    else
+                    {
+                        Debug.Log("not enough resources for upgrade");
+                    }
+                }
+                else if (!upgrade)
+                {
+                    occupiedTiles.Remove(thattile.transform.position);
+                    Destroy(thattile);
+                    Manager.resources += deletingTile.sellPrice;
+                }
+
+
 
             }
         }

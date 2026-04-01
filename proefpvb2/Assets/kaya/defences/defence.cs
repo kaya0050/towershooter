@@ -5,6 +5,9 @@ using static UnityEngine.GraphicsBuffer;
 
 public class defence : MonoBehaviour
 {
+    public bool canUpgrade;
+    public GameObject upgradedTower;
+    public int upgradecost;
 
     public bool active = false;
 
@@ -43,7 +46,7 @@ public class defence : MonoBehaviour
                 {
                     Vector3 direction = (target.transform.position - bulletpoint.transform.position).normalized;
                     Quaternion rotation = Quaternion.LookRotation(direction);
-                    GameObject b = Instantiate(bullet, bulletpoint.transform.position, rotation,this.transform);
+                    Instantiate(bullet, bulletpoint.transform.position, rotation,this.transform);
 
                 }
 
@@ -70,5 +73,12 @@ public class defence : MonoBehaviour
         }
 
         return closest;
+    }
+    public void Upgrade()
+    {
+
+        Instantiate(upgradedTower,gameObject.transform.position,gameObject.transform.rotation);
+        Destroy(gameObject);
+        
     }
 }
