@@ -21,7 +21,9 @@ public class gridplace : MonoBehaviour
         foreach (var item in checkpoints)
         {
             Vector3 placePos = GetGridLockedPos(item.transform.position);
+            item.transform.position = placePos;
             occupiedTiles.Add(placePos);
+
             Instantiate(checkPointMarker,placePos,gameObject.transform.rotation);
         }
         
@@ -62,7 +64,7 @@ public class gridplace : MonoBehaviour
     {
         Vector3 placementPos = placeMarker.transform.position;
 
-        if(!occupiedTiles.Contains(placementPos))
+        if(!occupiedTiles.Contains(placementPos) && !upgrade)
         {
             defence currentDefence = objectToPlace.GetComponent<defence>();
             if (Manager.resources > currentDefence.price)
@@ -85,17 +87,24 @@ public class gridplace : MonoBehaviour
                 defence deletingTile = thattile.GetComponent<defence>();
                 if (upgrade && deletingTile.canUpgrade)
                 {
-                    Manager.resources -= deletingTile.upgradecost;
-                    deletingTile.Upgrade();
+                    if (Manager.resources > deletingTile.upgradecost)
+                    {
+                        Manager.resources -= deletingTile.upgradecost;
+                        deletingTile.Upgrade();
+                    }
+                    else
+                    {
+                        Debug.Log("not enough resources for upgrade");
+                    }
                 }
-                else
+                else if (!upgrade)
                 {
                     occupiedTiles.Remove(thattile.transform.position);
                     Destroy(thattile);
                     Manager.resources += deletingTile.sellPrice;
                 }
 
-               
+
 
             }
         }
