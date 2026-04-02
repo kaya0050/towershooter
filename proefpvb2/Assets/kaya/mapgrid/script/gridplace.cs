@@ -21,10 +21,10 @@ public class gridplace : MonoBehaviour
         foreach (var item in checkpoints)
         {
             Vector3 placePos = GetGridLockedPos(item.transform.position);
-            item.transform.position = placePos;
+            item.transform.position = placePos + new Vector3(0, 0.5f, 0);
             occupiedTiles.Add(placePos);
 
-            Instantiate(checkPointMarker,placePos,gameObject.transform.rotation);
+            Instantiate(checkPointMarker, placePos + new Vector3(0, 0.5f, 0), gameObject.transform.rotation);
         }
         
     }
