@@ -28,6 +28,10 @@ public class EnemyStats : MonoBehaviour
         switch (other.tag)
         {
             case "Bullet":
+                if (other.GetComponent<BulletScriptnew>().slowdown && gameObject.GetComponent<EnemyPathFollowScript>().speed > 1)
+                {
+                    gameObject.GetComponent<EnemyPathFollowScript>().speed /= 2; 
+                }
                 Destroy(other.gameObject);
                 health -= 35;
                 break;

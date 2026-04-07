@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BulletScriptnew : MonoBehaviour
@@ -6,7 +7,7 @@ public class BulletScriptnew : MonoBehaviour
     public float destroyTimer = 2f;
 
     private Rigidbody rb;
-
+    public bool slowdown = false;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
