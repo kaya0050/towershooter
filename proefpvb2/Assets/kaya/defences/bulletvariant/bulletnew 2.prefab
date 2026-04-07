@@ -262,7 +262,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6684668d604a042468371881c5c619c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
-  destroyTimer: 2
+  speed: 5
+  destroyTimer: 20
   damage: 30
   slowdown: 0
+  homing: 1
+  targetEnemy: {fileID: 0}

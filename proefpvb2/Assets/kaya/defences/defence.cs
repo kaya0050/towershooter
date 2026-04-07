@@ -44,6 +44,7 @@ public class defence : MonoBehaviour
                 GameObject target = GetClosestEnemy();
                 if (target != null)
                 {
+                    bullet.GetComponent<BulletScriptnew>().targetEnemy = target;
                     Vector3 direction = (target.transform.position - bulletpoint.transform.position).normalized;
                     Quaternion rotation = Quaternion.LookRotation(direction);
                     Instantiate(bullet, bulletpoint.transform.position, rotation,this.transform);
