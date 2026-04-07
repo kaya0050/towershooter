@@ -155,6 +155,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05688b16af38aaa4e8dc5c17b63bf887, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canUpgrade: 0
+  upgradedTower: {fileID: 0}
+  upgradecost: 0
   active: 0
   price: 15
   sellPrice: 7
@@ -176,7 +179,7 @@ GameObject:
   - component: {fileID: 3156085733735447279}
   m_Layer: 0
   m_Name: Sphere
-  m_TagString: defence
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -262,7 +265,7 @@ GameObject:
   - component: {fileID: 6408996964377092800}
   m_Layer: 0
   m_Name: Cylinder
-  m_TagString: defence
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
