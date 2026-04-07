@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
-using static UnityEditor.FilePathAttribute;
 
 public class gridplace : MonoBehaviour
 {
