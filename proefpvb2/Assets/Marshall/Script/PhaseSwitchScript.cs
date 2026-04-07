@@ -10,6 +10,7 @@ public class PhaseSwitchScript : MonoBehaviour
     public Camera topView;
     public GameObject player;
     public gridplace gridplace;
+    public MenusScript menu;
     public GameObject[] defences;
 
     void Start()
@@ -18,16 +19,29 @@ public class PhaseSwitchScript : MonoBehaviour
         topView.enabled = true;
         firstPerson.enabled = false;
         gridplace.enabled = true;
-        
+    }
+
+    void Update()
+    {
+        if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0 && waveSpawner.isSpawning == false)
+        {
+            menu.bouwen = true;
+            Bouwfase();
+        }
     }
 
     public void Bouwfase()
     {
-        Cursor.lockState = CursorLockMode.None;
-        player.SetActive(false);
-        topView.enabled = true;
-        firstPerson.enabled = false;
-        gridplace.enabled = true;
+        if (menu.bouwen == true)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            player.SetActive(false);
+            topView.enabled = true;
+            firstPerson.enabled = false;
+            gridplace.enabled = true;
+            menu.inBouwFase = true;
+            menu.inVerdedigingFase = false;
+        }
     }
 
     public void Verdedigingsfase()
@@ -39,6 +53,8 @@ public class PhaseSwitchScript : MonoBehaviour
         player.SetActive(true);
         topView.enabled = false;
         firstPerson.enabled = true;
+        menu.inVerdedigingFase = true;
+        menu.inBouwFase = false;
 
         StartCoroutine(waveSpawner.StartNextWave());
     }

@@ -4,22 +4,24 @@ using UnityEngine.SceneManagement;
 
 public class MenusScript : MonoBehaviour
 {
-    public GameObject pauseMenu;
-    public GameObject verdedigingsButton;
     public cameramovement cameraMovement;
     public gridplace grid;
+    public GameObject verdedigingsButton;
+    public GameObject pauseMenu;
 
-    public bool inBouwFase = false;
+    public bool bouwen = true;
+    public bool inBouwFase = true;
     public bool inVerdedigingFase = false;
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            bouwen = false;
             Cursor.lockState = CursorLockMode.None;
-            verdedigingsButton.SetActive(false);
             grid.enabled = false;
             cameraMovement.enabled = false;
+            verdedigingsButton.SetActive(false);
             pauseMenu.SetActive(true);
             Time.timeScale = 0f;
         }
@@ -29,17 +31,18 @@ public class MenusScript : MonoBehaviour
     {
         if (inBouwFase)
         {
-            cameraMovement.enabled = true;
-            verdedigingsButton.SetActive(true);
-            Time.timeScale = 1f;
+            bouwen = true;
             pauseMenu.SetActive(false);
-        }
+            verdedigingsButton.SetActive(true);
+            cameraMovement.enabled = true;
+            Time.timeScale = 1f;
+        } 
         else if (inVerdedigingFase)
         {
             Cursor.lockState = CursorLockMode.Locked;
             cameraMovement.enabled = true;
-            Time.timeScale = 1f;
             pauseMenu.SetActive(false);
+            Time.timeScale = 1f;
         }
     }
 

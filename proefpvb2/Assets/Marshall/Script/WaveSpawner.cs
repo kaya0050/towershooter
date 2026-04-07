@@ -21,7 +21,7 @@ public class WaveSpawner : MonoBehaviour
     public GameObject smallEnemyPrefab;
 
     private int currentWaveIndex = 0;
-    private bool isSpawning = false;
+    public bool isSpawning = false;
 
     void Start()
     {
