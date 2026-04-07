@@ -5,7 +5,7 @@ public class BulletScriptnew : MonoBehaviour
 {
     public float speed = 20f;
     public float destroyTimer = 2f;
-
+    public int damage = 10;
     private Rigidbody rb;
     public bool slowdown = false;
     void Start()
