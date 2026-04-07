@@ -162,7 +162,7 @@ MonoBehaviour:
   price: 10
   sellPrice: 5
   range: 1000
-  firerate: 50
+  firerate: 80
   bullet: {fileID: 8622243900623563368, guid: 45fdbac4b80d618488261259046d1c68, type: 3}
   bulletpoint: {fileID: 1166588093430851766}
   enemies: []

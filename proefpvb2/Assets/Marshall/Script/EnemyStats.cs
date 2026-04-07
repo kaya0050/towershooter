@@ -27,9 +27,16 @@ public class EnemyStats : MonoBehaviour
     {
         switch (other.tag)
         {
+           
             case "Bullet":
+                BulletScriptnew bullet = other.GetComponent<BulletScriptnew>();
+
+                if (bullet.slowdown && gameObject.GetComponent<EnemyPathFollowScript>().speed > 1)
+                {
+                    gameObject.GetComponent<EnemyPathFollowScript>().speed /= 2; 
+                }
                 Destroy(other.gameObject);
-                health -= 35;
+                health -= bullet.damage;
                 break;
         }
     }
