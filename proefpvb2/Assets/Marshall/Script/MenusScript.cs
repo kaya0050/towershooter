@@ -6,10 +6,14 @@ public class MenusScript : MonoBehaviour
 {
     public cameramovement cameraMovement;
     public gridplace grid;
+    public DoelScript doel;
+    public manager managerScript;
     public GameObject verdedigingsButton;
     public GameObject upgradeButton;
     public GameObject upgradeScherm;
     public GameObject pauseMenu;
+
+    public int repareerKosten = 50;
 
     public bool bouwen = true;
     public bool inBouwFase = true;
@@ -27,6 +31,15 @@ public class MenusScript : MonoBehaviour
             upgradeButton.SetActive(false);
             pauseMenu.SetActive(true);
             Time.timeScale = 0f;
+        }
+    }
+
+    public void RepareerDoel()
+    {
+        if (doel.health < 100)
+        {
+            managerScript.resources -= repareerKosten;
+            doel.health = 100;
         }
     }
 

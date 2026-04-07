@@ -12,6 +12,7 @@ public class PlayerStats : MonoBehaviour
     public float takingDamageTimer = 0f;
     public float fireCooldown = 0f;
     public float fireCooldownUpgrade = 1f;
+    public float healingTimer = .2f;
 
     public GameObject bulletPrefab;
     public Transform bulletSpawnpoint;
@@ -21,8 +22,23 @@ public class PlayerStats : MonoBehaviour
     {
         TakingDamage();
         Schieten();
+        Healing();
 
         fireCooldown -= Time.deltaTime;
+    }
+
+    public void Healing()
+    {
+        if (health < maxHealth)
+        {
+            healingTimer -= Time.deltaTime;
+        }
+
+        if (healingTimer <= 0f)
+        {
+            health++;
+            healingTimer = .2f;
+        }
     }
 
     public void Schieten()
