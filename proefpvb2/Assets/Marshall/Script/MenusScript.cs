@@ -7,6 +7,8 @@ public class MenusScript : MonoBehaviour
     public cameramovement cameraMovement;
     public gridplace grid;
     public GameObject verdedigingsButton;
+    public GameObject upgradeButton;
+    public GameObject upgradeScherm;
     public GameObject pauseMenu;
 
     public bool bouwen = true;
@@ -22,6 +24,7 @@ public class MenusScript : MonoBehaviour
             grid.enabled = false;
             cameraMovement.enabled = false;
             verdedigingsButton.SetActive(false);
+            upgradeButton.SetActive(false);
             pauseMenu.SetActive(true);
             Time.timeScale = 0f;
         }
@@ -34,6 +37,7 @@ public class MenusScript : MonoBehaviour
             bouwen = true;
             pauseMenu.SetActive(false);
             verdedigingsButton.SetActive(true);
+            upgradeButton.SetActive(true);
             cameraMovement.enabled = true;
             Time.timeScale = 1f;
         } 
@@ -44,6 +48,20 @@ public class MenusScript : MonoBehaviour
             pauseMenu.SetActive(false);
             Time.timeScale = 1f;
         }
+    }
+
+    public void UpgradeMenu()
+    {
+        upgradeScherm.SetActive(true);
+        grid.enabled = false;
+        bouwen = false;
+    }
+
+    public void UpgradeMenuSluiten()
+    {
+        upgradeScherm.SetActive(false);
+        grid.enabled = true;
+        bouwen = true;
     }
 
     public void StartGame()

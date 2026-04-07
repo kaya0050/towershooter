@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerStats : MonoBehaviour
 {
     public int health = 100;
+    public int maxHealth = 100;
 
     public bool bijEnemy = false;
     public bool bijSmallEnemy = false;
@@ -10,6 +11,7 @@ public class PlayerStats : MonoBehaviour
 
     public float takingDamageTimer = 0f;
     public float fireCooldown = 0f;
+    public float fireCooldownUpgrade = 1f;
 
     public GameObject bulletPrefab;
     public Transform bulletSpawnpoint;
@@ -28,7 +30,7 @@ public class PlayerStats : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0) && fireCooldown <= 0)
         {
             Instantiate(bulletPrefab, bulletSpawnpoint.position, bulletSpawnpoint.rotation);
-            fireCooldown = .5f;
+            fireCooldown = fireCooldownUpgrade;
         }
     }
 
