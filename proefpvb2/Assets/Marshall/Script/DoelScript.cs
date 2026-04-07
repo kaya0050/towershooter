@@ -2,13 +2,15 @@ using UnityEngine;
 
 public class DoelScript : MonoBehaviour
 {
+    public GameObject deathScherm;
+
     public int health = 100;
 
     private void Update()
     {
         if (health <= 0)
         {
-            // einde spel.
+            deathScherm.SetActive(true);
         }
     }
 

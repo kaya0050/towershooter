@@ -48,7 +48,8 @@ public class MenusScript : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene("merge2");
+        Time.timeScale = 1f;
     }
 
     public void BackToMain()

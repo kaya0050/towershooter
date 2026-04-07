@@ -25,7 +25,6 @@ public class PhaseSwitchScript : MonoBehaviour
     {
         if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0 && waveSpawner.isSpawning == false)
         {
-            menu.bouwen = true;
             Bouwfase();
         }
     }
