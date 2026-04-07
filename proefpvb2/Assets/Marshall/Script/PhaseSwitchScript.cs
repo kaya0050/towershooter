@@ -1,3 +1,6 @@
+using NUnit.Framework;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PhaseSwitchScript : MonoBehaviour
@@ -7,6 +10,7 @@ public class PhaseSwitchScript : MonoBehaviour
     public Camera topView;
     public GameObject player;
     public gridplace gridplace;
+    public GameObject[] defences;
 
     void Start()
     {
@@ -14,6 +18,7 @@ public class PhaseSwitchScript : MonoBehaviour
         topView.enabled = true;
         firstPerson.enabled = false;
         gridplace.enabled = true;
+        
     }
 
     public void Bouwfase()
@@ -27,6 +32,8 @@ public class PhaseSwitchScript : MonoBehaviour
 
     public void Verdedigingsfase()
     {
+        defences = GameObject.FindGameObjectsWithTag("defence");
+        defloop(true);
         Cursor.lockState= CursorLockMode.Locked;
         gridplace.enabled = false;
         player.SetActive(true);
@@ -34,5 +41,12 @@ public class PhaseSwitchScript : MonoBehaviour
         firstPerson.enabled = true;
 
         StartCoroutine(waveSpawner.StartNextWave());
+    }
+    void defloop(bool bl)
+    {
+        foreach (var item in defences)
+        {
+            item.GetComponent<defence>().active = bl;
+        }
     }
 }

@@ -891,6 +891,7 @@ MonoBehaviour:
   topView: {fileID: 723550241}
   player: {fileID: 2011748667}
   gridplace: {fileID: 1431868170}
+  defences: []
 --- !u!114 &782281318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1546,7 +1547,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6069787897471450071, guid: b4da5cadd21903449b81f9eeeb98cdc9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6069787897471450071, guid: b4da5cadd21903449b81f9eeeb98cdc9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
