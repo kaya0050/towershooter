@@ -1717,13 +1717,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - normalEnemies: 5
-    bigEnemies: 0
+  - normalEnemies: 10
+    bigEnemies: 2
     smallEnemies: 0
     spawnRate: 1
-  - normalEnemies: 10
-    bigEnemies: 0
-    smallEnemies: 0
+  - normalEnemies: 15
+    bigEnemies: 5
+    smallEnemies: 2
+    spawnRate: 1
+  - normalEnemies: 20
+    bigEnemies: 5
+    smallEnemies: 5
+    spawnRate: 1
+  - normalEnemies: 20
+    bigEnemies: 5
+    smallEnemies: 10
+    spawnRate: 1
+  - normalEnemies: 20
+    bigEnemies: 10
+    smallEnemies: 10
     spawnRate: 1
   spawnPoint: {fileID: 572303821}
   normalEnemyPrefab: {fileID: 5953997566413008577, guid: 080aaf37faed0d84a9fba3eeefe5db46, type: 3}

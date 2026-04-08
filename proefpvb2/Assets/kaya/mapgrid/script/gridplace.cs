@@ -66,7 +66,7 @@ public class gridplace : MonoBehaviour
         if(!occupiedTiles.Contains(placementPos) && !upgrade)
         {
             defence currentDefence = objectToPlace.GetComponent<defence>();
-            if (Manager.resources > currentDefence.price)
+            if (Manager.resources >= currentDefence.price)
             {
                 Instantiate(objectToPlace, placementPos, Quaternion.identity);
 
@@ -86,7 +86,7 @@ public class gridplace : MonoBehaviour
                 defence deletingTile = thattile.GetComponent<defence>();
                 if (upgrade && deletingTile.canUpgrade)
                 {
-                    if (Manager.resources > deletingTile.upgradecost)
+                    if (Manager.resources >= deletingTile.upgradecost)
                     {
                         Manager.resources -= deletingTile.upgradecost;
                         deletingTile.Upgrade();

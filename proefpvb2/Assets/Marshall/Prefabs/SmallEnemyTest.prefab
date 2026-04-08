@@ -150,7 +150,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  speed: 5
+  speed: 15
   rotationSpeed: 5
 --- !u!54 &1162065178582483040
 Rigidbody:
@@ -191,4 +191,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae305a8e861b6d647b06e7aceb3ff19b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 250
+  playerStats: {fileID: 0}
+  managerScript: {fileID: 0}
