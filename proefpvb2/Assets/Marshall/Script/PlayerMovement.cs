@@ -4,7 +4,6 @@ public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 6f;
     public float sprintSpeed = 10f;
-    public float crouchSpeed = 3f;
 
     public float jumpForce = 5f;
     public float groundCheckDistance = .3f;

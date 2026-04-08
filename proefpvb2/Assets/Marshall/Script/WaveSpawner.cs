@@ -16,12 +16,14 @@ public class WaveSpawner : MonoBehaviour
 
     public Transform spawnPoint;
 
+    public PhaseSwitchScript phases;
+
     public GameObject normalEnemyPrefab;
     public GameObject bigEnemyPrefab;
     public GameObject smallEnemyPrefab;
 
     private int currentWaveIndex = 0;
-    private bool isSpawning = false;
+    public bool isSpawning = false;
 
     void Start()
     {
@@ -52,18 +54,21 @@ public class WaveSpawner : MonoBehaviour
     {
         for (int i = 0; i < wave.normalEnemies; i++)
         {
+            phases.levendeEnemies++;
             SpawnEnemy(normalEnemyPrefab);
             yield return new WaitForSeconds(wave.spawnRate);
         }
 
         for (int i = 0; i < wave.bigEnemies; i++)
         {
+            phases.levendeEnemies++;
             SpawnEnemy(bigEnemyPrefab);
             yield return new WaitForSeconds(wave.spawnRate);
         }
 
         for (int i = 0; i < wave.smallEnemies; i++)
         {
+            phases.levendeEnemies++;
             SpawnEnemy(smallEnemyPrefab);
             yield return new WaitForSeconds(wave.spawnRate);
         }

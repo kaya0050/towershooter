@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerStats : MonoBehaviour
 {
     public int health = 100;
+    public int maxHealth = 100;
 
     public bool bijEnemy = false;
     public bool bijSmallEnemy = false;
@@ -10,6 +11,8 @@ public class PlayerStats : MonoBehaviour
 
     public float takingDamageTimer = 0f;
     public float fireCooldown = 0f;
+    public float fireCooldownUpgrade = 1f;
+    public float healingTimer = .2f;
 
     public GameObject bulletPrefab;
     public Transform bulletSpawnpoint;
@@ -19,8 +22,23 @@ public class PlayerStats : MonoBehaviour
     {
         TakingDamage();
         Schieten();
+        Healing();
 
         fireCooldown -= Time.deltaTime;
+    }
+
+    public void Healing()
+    {
+        if (health < maxHealth)
+        {
+            healingTimer -= Time.deltaTime;
+        }
+
+        if (healingTimer <= 0f)
+        {
+            health++;
+            healingTimer = .2f;
+        }
     }
 
     public void Schieten()
@@ -28,16 +46,13 @@ public class PlayerStats : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0) && fireCooldown <= 0)
         {
             Instantiate(bulletPrefab, bulletSpawnpoint.position, bulletSpawnpoint.rotation);
-            fireCooldown = .5f;
+            fireCooldown = fireCooldownUpgrade;
         }
     }
 
     public void TakingDamage()
     {
-        if (bijEnemy || bijBigEnemy || bijSmallEnemy)
-        {
-            takingDamageTimer -= Time.deltaTime;
-        }
+        takingDamageTimer -= Time.deltaTime;
 
         if (takingDamageTimer < 0 && bijEnemy)
         {
