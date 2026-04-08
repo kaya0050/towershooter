@@ -6,16 +6,19 @@ public class EnemyStats : MonoBehaviour
     public int health = 100;
 
     public PlayerStats playerStats;
+    public manager managerScript;
 
     private void Start()
     {
         playerStats = FindFirstObjectByType<PlayerStats>();
+        managerScript = FindFirstObjectByType<manager>();
     }
 
     void Update()
     {
         if (health <= 0)
         {
+            managerScript.resources += 10;
             Destroy(gameObject);
             playerStats.bijEnemy = false;
             playerStats.bijBigEnemy = false;

@@ -57,6 +57,7 @@ public class MenusScript : MonoBehaviour
         else if (inVerdedigingFase)
         {
             Cursor.lockState = CursorLockMode.Locked;
+            bouwen = true;
             cameraMovement.enabled = true;
             pauseMenu.SetActive(false);
             Time.timeScale = 1f;
