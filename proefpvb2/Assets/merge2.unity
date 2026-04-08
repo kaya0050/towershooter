@@ -1437,7 +1437,7 @@ Transform:
   m_GameObject: {fileID: 723550239}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 10, z: 0}
+  m_LocalPosition: {x: 0, y: 35.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1595,7 +1595,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxZoom: 1
-  minZoom: 50
+  minZoom: 100
 --- !u!1 &745554664
 GameObject:
   m_ObjectHideFlags: 0
@@ -1698,6 +1698,9 @@ MonoBehaviour:
   firstPerson: {fileID: 2011748668}
   topView: {fileID: 723550241}
   player: {fileID: 2011748667}
+  upgradeButton: {fileID: 173145951}
+  verdedigingsfaseButton: {fileID: 1482710297}
+  repareerButton: {fileID: 1761313895}
   gridplace: {fileID: 1431868170}
   menu: {fileID: 782281319}
   defences: []
@@ -3246,7 +3249,7 @@ GameObject:
   - component: {fileID: 1431868167}
   - component: {fileID: 1431868166}
   - component: {fileID: 1431868170}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: floor
   m_TagString: floor
   m_Icon: {fileID: 0}

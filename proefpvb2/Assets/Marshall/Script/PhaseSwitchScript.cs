@@ -9,6 +9,9 @@ public class PhaseSwitchScript : MonoBehaviour
     public Camera firstPerson;
     public Camera topView;
     public GameObject player;
+    public GameObject upgradeButton;
+    public GameObject verdedigingsfaseButton;
+    public GameObject repareerButton;
     public gridplace gridplace;
     public MenusScript menu;
     public GameObject[] defences;
@@ -35,6 +38,9 @@ public class PhaseSwitchScript : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.None;
             player.SetActive(false);
+            repareerButton.SetActive(true);
+            verdedigingsfaseButton.SetActive(true);
+            upgradeButton.SetActive(true);
             topView.enabled = true;
             firstPerson.enabled = false;
             gridplace.enabled = true;
@@ -50,6 +56,9 @@ public class PhaseSwitchScript : MonoBehaviour
         Cursor.lockState= CursorLockMode.Locked;
         gridplace.enabled = false;
         player.SetActive(true);
+        repareerButton.SetActive(false);
+        verdedigingsfaseButton.SetActive(false);
+        upgradeButton.SetActive(false);
         topView.enabled = false;
         firstPerson.enabled = true;
         menu.inVerdedigingFase = true;
