@@ -52,10 +52,7 @@ public class PlayerStats : MonoBehaviour
 
     public void TakingDamage()
     {
-        if (bijEnemy || bijBigEnemy || bijSmallEnemy)
-        {
-            takingDamageTimer -= Time.deltaTime;
-        }
+        takingDamageTimer -= Time.deltaTime;
 
         if (takingDamageTimer < 0 && bijEnemy)
         {

@@ -7,17 +7,20 @@ public class EnemyStats : MonoBehaviour
 
     public PlayerStats playerStats;
     public manager managerScript;
+    public PhaseSwitchScript phases;
 
     private void Start()
     {
         playerStats = FindFirstObjectByType<PlayerStats>();
         managerScript = FindFirstObjectByType<manager>();
+        phases = FindFirstObjectByType<PhaseSwitchScript>();
     }
 
     void Update()
     {
         if (health <= 0)
         {
+            phases.levendeEnemies--;
             managerScript.resources += 10;
             Destroy(gameObject);
             playerStats.bijEnemy = false;

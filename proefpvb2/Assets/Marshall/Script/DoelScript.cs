@@ -11,6 +11,8 @@ public class DoelScript : MonoBehaviour
         if (health <= 0)
         {
             deathScherm.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Time.timeScale = 0f;
         }
     }
 

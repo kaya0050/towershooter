@@ -16,6 +16,8 @@ public class PhaseSwitchScript : MonoBehaviour
     public MenusScript menu;
     public GameObject[] defences;
 
+    public int levendeEnemies;
+
     void Start()
     {
         player.SetActive(false);
@@ -26,7 +28,7 @@ public class PhaseSwitchScript : MonoBehaviour
 
     void Update()
     {
-        if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0 && waveSpawner.isSpawning == false)
+        if (levendeEnemies == 0 && waveSpawner.isSpawning == false)
         {
             Bouwfase();
         }

@@ -1704,6 +1704,7 @@ MonoBehaviour:
   gridplace: {fileID: 1431868170}
   menu: {fileID: 782281319}
   defences: []
+  levendeEnemies: 0
 --- !u!114 &782281318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1738,6 +1739,7 @@ MonoBehaviour:
     smallEnemies: 10
     spawnRate: 1
   spawnPoint: {fileID: 572303821}
+  phases: {fileID: 782281317}
   normalEnemyPrefab: {fileID: 5953997566413008577, guid: 080aaf37faed0d84a9fba3eeefe5db46, type: 3}
   bigEnemyPrefab: {fileID: 5953997566413008577, guid: d65d02295ffa7a84bb2f618801e2ff34, type: 3}
   smallEnemyPrefab: {fileID: 5953997566413008577, guid: b018dec9583ac6348abeec9d8ea8d1df, type: 3}
