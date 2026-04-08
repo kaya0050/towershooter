@@ -65,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 726f01fa4c5a9f54fa98a8dc2b203b8c, type: 2}
+  - {fileID: 2100000, guid: 3da024311d59beb41b762e3ba6e78108, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -123,9 +123,9 @@ GameObject:
   - component: {fileID: 1756237439746705745}
   - component: {fileID: 924335336964790423}
   - component: {fileID: 1610543562717027789}
-  - component: {fileID: -4670623814654080064}
+  - component: {fileID: -1081372727011677466}
   m_Layer: 0
-  m_Name: bulletnew 2
+  m_Name: bulletslowdown
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -250,7 +250,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &-4670623814654080064
+--- !u!114 &-1081372727011677466
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -262,9 +262,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6684668d604a042468371881c5c619c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  destroyTimer: 20
-  damage: 30
-  slowdown: 0
-  homing: 1
-  targetEnemy: {fileID: 0}
+  speed: 20
+  destroyTimer: 2
+  slowdown: 1

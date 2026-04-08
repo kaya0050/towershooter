@@ -31,12 +31,24 @@ public class EnemyStats : MonoBehaviour
             case "Bullet":
                 BulletScriptnew bullet = other.GetComponent<BulletScriptnew>();
 
-                if (bullet.slowdown && gameObject.GetComponent<EnemyPathFollowScript>().speed > 1)
+                if (bullet.isSlowdown && gameObject.GetComponent<EnemyPathFollowScript>().speed > 1)
                 {
                     gameObject.GetComponent<EnemyPathFollowScript>().speed /= 2; 
                 }
-                Destroy(other.gameObject);
+                if (bullet.isBomb == false)
+                {
+                   
+                    Destroy(other.gameObject);
+                }
+                else
+                {
+                    Instantiate(bullet.bomb, transform.position, Quaternion.identity);
+                }
+                
                 health -= bullet.damage;
+                break;
+            case "Bomb":
+                health -= 100;
                 break;
         }
     }
