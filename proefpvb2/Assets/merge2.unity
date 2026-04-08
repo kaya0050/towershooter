@@ -1411,7 +1411,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 11.61
   m_Depth: -1
   m_CullingMask:
@@ -1594,6 +1594,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5db25be7cd4bf743bcfc15a91ceaa00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 723550241}
   maxZoom: 1
   minZoom: 100
 --- !u!1 &745554664
@@ -1757,14 +1758,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f76b2ba6cd027ca4480f90f82b16a8f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraMovement: {fileID: 0}
-  grid: {fileID: 0}
-  doel: {fileID: 0}
-  managerScript: {fileID: 0}
-  verdedigingsButton: {fileID: 0}
-  upgradeButton: {fileID: 0}
-  upgradeScherm: {fileID: 0}
-  pauseMenu: {fileID: 0}
+  cameraMovement: {fileID: 723550244}
+  grid: {fileID: 1431868170}
+  doel: {fileID: 2066971608}
+  managerScript: {fileID: 782281315}
+  verdedigingsButton: {fileID: 1482710297}
+  upgradeButton: {fileID: 173145951}
+  upgradeScherm: {fileID: 1649032729}
+  pauseMenu: {fileID: 1472501829}
+  placeMarker: {fileID: 938533334}
   repareerKosten: 50
   bouwen: 1
   inBouwFase: 1
@@ -1784,9 +1786,9 @@ MonoBehaviour:
   fireRateUpgradeCost: 25
   speedUpgradeCost: 25
   healthUpgradeCost: 25
-  stats: {fileID: 0}
-  movement: {fileID: 0}
-  managerScript: {fileID: 0}
+  stats: {fileID: 2011748673}
+  movement: {fileID: 2011748674}
+  managerScript: {fileID: 782281315}
 --- !u!1 &840998094
 GameObject:
   m_ObjectHideFlags: 0
@@ -3379,6 +3381,7 @@ MonoBehaviour:
   gridSize: 1
   placeMarker: {fileID: 938533334}
   checkPointMarker: {fileID: 1626173054762081089, guid: b99bbc7f47192934a8fef05bad862d76, type: 3}
+  waypoints: []
 --- !u!1 &1450708877
 GameObject:
   m_ObjectHideFlags: 0
@@ -4761,6 +4764,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: tilemarker
       objectReference: {fileID: 0}
+    - target: {fileID: 1626173054762081089, guid: b4da5cadd21903449b81f9eeeb98cdc9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1871721710841114047, guid: b4da5cadd21903449b81f9eeeb98cdc9, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.2
@@ -4902,6 +4909,28 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 2079683149989129592, guid: e713df0ddd20f6d4ca4639c60a6b3700, type: 3}
   m_PrefabInstance: {fileID: 2011748666}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2011748673 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5831192668889950215, guid: e713df0ddd20f6d4ca4639c60a6b3700, type: 3}
+  m_PrefabInstance: {fileID: 2011748666}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2011748667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9ead80faed3e3547be625f38b99b575, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2011748674 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5534597571998286713, guid: e713df0ddd20f6d4ca4639c60a6b3700, type: 3}
+  m_PrefabInstance: {fileID: 2011748666}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2011748667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df87506fc4cce1e45aac7ba81e513391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2061436468
 GameObject:
   m_ObjectHideFlags: 0
@@ -5156,7 +5185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c936258b9564c0d4fa8549504374371d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathScherm: {fileID: 0}
+  deathScherm: {fileID: 1664960607}
   health: 100
 --- !u!1 &2091816163
 GameObject:

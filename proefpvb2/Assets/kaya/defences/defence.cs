@@ -26,13 +26,14 @@ public class defence : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        managerScript = FindFirstObjectByType<manager>();
         timer = firerate;
     }
 
     // Update is called once per frame
     void Update()
     {
-        managerScript = FindFirstObjectByType<manager>();
+        
         enemies = managerScript.enemies.ToArray();
     }
     private void FixedUpdate()

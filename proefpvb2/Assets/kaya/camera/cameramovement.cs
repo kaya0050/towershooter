@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class cameramovement : MonoBehaviour
 {
-    Camera cam;
+    public Camera cam;
     public int maxZoom;
     public int minZoom;
 
@@ -11,7 +11,7 @@ public class cameramovement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        cam = GetComponent<Camera>();
+        
     }
 
     // Update is called once per frame

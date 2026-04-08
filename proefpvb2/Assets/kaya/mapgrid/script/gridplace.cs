@@ -8,7 +8,6 @@ public class gridplace : MonoBehaviour
     public manager Manager;
     public GameObject objectToPlace;
     public float gridSize = 1;
-
     public GameObject placeMarker;
     public GameObject checkPointMarker;
     public Transform[] waypoints;
@@ -62,6 +61,7 @@ public class gridplace : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         RaycastHit hit = RAY();
         GetPlaceMarkerGridPos(hit);
 
@@ -75,6 +75,7 @@ public class gridplace : MonoBehaviour
             upgrade = true;
             PlaceMarker(hit);
         }
+        
     }
     void GetPlaceMarkerGridPos(RaycastHit hit)
     {

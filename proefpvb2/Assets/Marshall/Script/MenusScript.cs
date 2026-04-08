@@ -13,6 +13,7 @@ public class MenusScript : MonoBehaviour
     public GameObject upgradeScherm;
     public GameObject pauseMenu;
 
+    public GameObject placeMarker;
     public int repareerKosten = 50;
 
     public bool bouwen = true;
@@ -21,6 +22,8 @@ public class MenusScript : MonoBehaviour
 
     private void Update()
     {
+        placeMarker.SetActive(!inVerdedigingFase);
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             bouwen = false;
