@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
@@ -11,21 +11,53 @@ public class gridplace : MonoBehaviour
 
     public GameObject placeMarker;
     public GameObject checkPointMarker;
+    public Transform[] waypoints;
     private List<Vector3> occupiedTiles = new List<Vector3>();
     bool upgrade = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         GameObject[] checkpoints = GameObject.FindGameObjectsWithTag("checkpoint");
-        foreach (var item in checkpoints)
+
+        waypoints = checkpoints
+            .OrderBy(wp => wp.name)
+            .Select(wp => wp.transform)
+            .ToArray();
+
+        for (int i = 0; i < waypoints.Length; i++)
         {
-            Vector3 placePos = GetGridLockedPos(item.transform.position);
-            item.transform.position = placePos + new Vector3(0, 0.5f, 0);
+            Vector3 placePos = GetGridLockedPos(waypoints[i].position);
+            waypoints[i].position = placePos + new Vector3(0, 0.5f, 0);
+
             occupiedTiles.Add(placePos);
 
-            Instantiate(checkPointMarker, placePos + new Vector3(0, 0.5f, 0), gameObject.transform.rotation);
+
+            Instantiate(checkPointMarker, placePos + new Vector3(0, 0.5f, 0), transform.rotation);
+
+
+            if (i < waypoints.Length - 1)
+            {
+                Vector3 nextPos = GetGridLockedPos(waypoints[i + 1].position);
+
+                float distance = Vector3.Distance(placePos, nextPos);
+                int steps = Mathf.RoundToInt(distance);
+
+                for (float j = 1; j < steps; j++)
+                {
+                    float t = j / steps;
+                    Vector3 interpPos = Vector3.Lerp(placePos, nextPos, t);
+
+                    Vector3 gridPos = GetGridLockedPos(interpPos);
+
+                    if (!occupiedTiles.Contains(gridPos))
+                    {
+                        occupiedTiles.Add(gridPos);
+
+                        Instantiate(checkPointMarker, gridPos + new Vector3(0, 0.5f, 0), transform.rotation);
+                    }
+                }
+            }
         }
-        
     }
     // Update is called once per frame
     void Update()
