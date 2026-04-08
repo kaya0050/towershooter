@@ -13,6 +13,7 @@ public class EnemyStats : MonoBehaviour
     {
         playerStats = FindFirstObjectByType<PlayerStats>();
         managerScript = FindFirstObjectByType<manager>();
+        managerScript.enemies.Add(gameObject);
         phases = FindFirstObjectByType<PhaseSwitchScript>();
     }
 
@@ -20,6 +21,7 @@ public class EnemyStats : MonoBehaviour
     {
         if (health <= 0)
         {
+            managerScript.enemies.Remove(gameObject);
             phases.levendeEnemies--;
             managerScript.resources += 10;
             Destroy(gameObject);

@@ -22,6 +22,7 @@ public class defence : MonoBehaviour
     public GameObject bulletpoint;
 
     public GameObject[] enemies;
+    manager managerScript;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -31,7 +32,8 @@ public class defence : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        managerScript = FindFirstObjectByType<manager>();
+        enemies = managerScript.enemies.ToArray();
     }
     private void FixedUpdate()
     {

@@ -10,6 +10,7 @@ public class manager : MonoBehaviour
 
     private GameObject defenceToPlace;
     public List<GameObject> defences;
+    public List<GameObject> enemies;
 
     void Start()
     {
