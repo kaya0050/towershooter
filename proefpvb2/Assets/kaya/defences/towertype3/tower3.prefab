@@ -155,9 +155,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05688b16af38aaa4e8dc5c17b63bf887, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canUpgrade: 0
-  upgradedTower: {fileID: 0}
-  upgradecost: 0
+  canUpgrade: 1
+  upgradedTower: {fileID: 3144005980974766079, guid: 7416c60798f22b140bded6adf2e889f2, type: 3}
+  upgradecost: 7
   active: 0
   price: 10
   sellPrice: 5

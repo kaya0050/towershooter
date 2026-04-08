@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 1610543562717027789}
   - component: {fileID: -4670623814654080064}
   m_Layer: 0
-  m_Name: bullethoming
+  m_Name: bullethomingbomb
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -267,6 +267,6 @@ MonoBehaviour:
   damage: 30
   isSlowdown: 0
   isHoming: 0
-  isBomb: 0
+  isBomb: 1
   bomb: {fileID: 8716562373394366046, guid: 566b7eb18cd9fed4d9d0fb5457984a7d, type: 3}
   targetEnemy: {fileID: 0}
