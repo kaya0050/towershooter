@@ -26,17 +26,17 @@ public class DoelScript : MonoBehaviour
         {
             case "Enemy":
                 managerScript.enemies.Remove(gameObject);
-                Destroy(other.gameObject);
+                other.gameObject.GetComponent<EnemyStats>().health = 0;
                 health -= 35;
                 break;
             case "BigEnemy":
                 managerScript.enemies.Remove(gameObject);
-                Destroy(other.gameObject);
+                other.gameObject.GetComponent<EnemyStats>().health = 0;
                 health -= 49;
                 break;
             case "SmallEnemy":
                 managerScript.enemies.Remove(gameObject);
-                Destroy(other.gameObject);
+                other.gameObject.GetComponent<EnemyStats>().health = 0;
                 health -= 20;
                 break;
         }

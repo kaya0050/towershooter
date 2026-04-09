@@ -8,6 +8,7 @@ public class EnemyStats : MonoBehaviour
     public PlayerStats playerStats;
     public manager managerScript;
     public PhaseSwitchScript phases;
+    public GameObject deathEffect;
 
     private void Start()
     {
@@ -21,6 +22,7 @@ public class EnemyStats : MonoBehaviour
     {
         if (health <= 0)
         {
+            Instantiate(deathEffect,gameObject.transform.position,Quaternion.identity);
             managerScript.enemies.Remove(gameObject);
             phases.levendeEnemies--;
             managerScript.resources += 10;

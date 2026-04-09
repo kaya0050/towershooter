@@ -194,3 +194,5 @@ MonoBehaviour:
   health: 1500
   playerStats: {fileID: 0}
   managerScript: {fileID: 0}
+  phases: {fileID: 0}
+  deathEffect: {fileID: 4594038821951443169, guid: 0529aa8f51952ab43984ea3b498be2ff, type: 3}
