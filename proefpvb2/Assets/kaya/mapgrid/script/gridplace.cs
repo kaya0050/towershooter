@@ -31,7 +31,7 @@ public class gridplace : MonoBehaviour
             occupiedTiles.Add(placePos);
 
 
-            Instantiate(checkPointMarker, placePos + new Vector3(0, 0.5f, 0), transform.rotation);
+            Instantiate(checkPointMarker, placePos + new Vector3(0, 0, 0), transform.rotation);
 
 
             if (i < waypoints.Length - 1)
@@ -51,8 +51,11 @@ public class gridplace : MonoBehaviour
                     if (!occupiedTiles.Contains(gridPos))
                     {
                         occupiedTiles.Add(gridPos);
-
-                        Instantiate(checkPointMarker, gridPos + new Vector3(0, 0.5f, 0), transform.rotation);
+                        GameObject pathMarker = Instantiate(checkPointMarker, gridPos + new Vector3(0, -0.25f, 0), transform.rotation);
+                        Renderer rend = pathMarker.GetComponent<Renderer>();
+                        float colorchange = (float)j / (steps - 1);
+                        Color c = new Color(colorchange, 1, colorchange, 0.75f);
+                        rend.material.color = c;
                     }
                 }
             }
