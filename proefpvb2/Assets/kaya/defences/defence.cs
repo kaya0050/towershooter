@@ -1,5 +1,7 @@
 using NUnit.Framework;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
@@ -64,16 +66,27 @@ public class defence : MonoBehaviour
         GameObject closest = null;
         float minDistance = range;
 
+        enemies = managerScript.enemies.ToArray();
 
         foreach (GameObject enemy in enemies)
         {
-            float distance = Vector3.Distance(transform.position, enemy.transform.position);
-
-            if (distance < minDistance)
+            if (enemy.IsDestroyed())
             {
-                minDistance = distance;
-                closest = enemy;
+                List<GameObject> enemieslist = enemies.ToList();
+                enemieslist.Remove(enemy);
+                enemies = enemieslist.ToArray();
             }
+            else
+            {
+                float distance = Vector3.Distance(transform.position, enemy.transform.position);
+
+                if (distance < minDistance)
+                {
+                    minDistance = distance;
+                    closest = enemy;
+                }
+            }
+            
         }
 
         return closest;
