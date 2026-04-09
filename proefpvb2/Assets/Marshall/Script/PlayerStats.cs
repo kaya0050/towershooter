@@ -4,6 +4,7 @@ public class PlayerStats : MonoBehaviour
 {
     public int health = 100;
     public int maxHealth = 100;
+    public int kogels = 30;
 
     public bool bijEnemy = false;
     public bool bijSmallEnemy = false;
@@ -43,10 +44,16 @@ public class PlayerStats : MonoBehaviour
 
     public void Schieten()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && fireCooldown <= 0)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && fireCooldown <= 0 && kogels > 0)
         {
             Instantiate(bulletPrefab, bulletSpawnpoint.position, bulletSpawnpoint.rotation);
+            kogels--;
             fireCooldown = fireCooldownUpgrade;
+        }
+
+        if (kogels < 30 && Input.GetKey(KeyCode.R))
+        {
+            kogels = 30;
         }
     }
 

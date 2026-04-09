@@ -12,6 +12,7 @@ public class PhaseSwitchScript : MonoBehaviour
     public GameObject upgradeButton;
     public GameObject verdedigingsfaseButton;
     public GameObject repareerButton;
+    public GameObject hud;
     public gridplace gridplace;
     public MenusScript menu;
     public GameObject[] defences;
@@ -24,6 +25,7 @@ public class PhaseSwitchScript : MonoBehaviour
         topView.enabled = true;
         firstPerson.enabled = false;
         gridplace.enabled = true;
+        hud.SetActive(false);
     }
 
     void Update()
@@ -38,6 +40,7 @@ public class PhaseSwitchScript : MonoBehaviour
     {
         if (menu.bouwen == true)
         {
+            hud.SetActive(false);
             Cursor.lockState = CursorLockMode.None;
             player.SetActive(false);
             repareerButton.SetActive(true);
@@ -53,6 +56,7 @@ public class PhaseSwitchScript : MonoBehaviour
 
     public void Verdedigingsfase()
     {
+        hud.SetActive(true);
         defences = GameObject.FindGameObjectsWithTag("defence");
         defloop(true);
         Cursor.lockState= CursorLockMode.Locked;
