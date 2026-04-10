@@ -39,6 +39,7 @@ public class WaveSpawner : MonoBehaviour
         if (currentWaveIndex >= waves.Length)
         {
             WinScherm.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0f;
         }
     }

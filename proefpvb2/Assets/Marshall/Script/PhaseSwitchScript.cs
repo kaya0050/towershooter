@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 
 public class PhaseSwitchScript : MonoBehaviour
@@ -13,6 +14,7 @@ public class PhaseSwitchScript : MonoBehaviour
     public GameObject verdedigingsfaseButton;
     public GameObject repareerButton;
     public GameObject hud;
+    public TextMeshProUGUI resourceText;
     public gridplace gridplace;
     public MenusScript menu;
     public GameObject[] defences;
@@ -41,6 +43,7 @@ public class PhaseSwitchScript : MonoBehaviour
         if (menu.bouwen == true)
         {
             hud.SetActive(false);
+            resourceText.enabled = true;
             Cursor.lockState = CursorLockMode.None;
             player.SetActive(false);
             repareerButton.SetActive(true);
@@ -57,6 +60,7 @@ public class PhaseSwitchScript : MonoBehaviour
     public void Verdedigingsfase()
     {
         hud.SetActive(true);
+        resourceText.enabled = false;
         defences = GameObject.FindGameObjectsWithTag("defence");
         defloop(true);
         Cursor.lockState= CursorLockMode.Locked;
