@@ -19,13 +19,14 @@ public class MenusScript : MonoBehaviour
     public bool bouwen = true;
     public bool inBouwFase = true;
     public bool inVerdedigingFase = false;
-
+    public bool pause;
     private void Update()
     {
         placeMarker.SetActive(!inVerdedigingFase);
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            pause = true;
             bouwen = false;
             Cursor.lockState = CursorLockMode.None;
             grid.enabled = false;

@@ -7,12 +7,11 @@ public class manager : MonoBehaviour
     public KeyCode switchkey;
 
     public gridplace gridplace;
-
+    public MenusScript MenusScript;
     private GameObject defenceToPlace;
     public List<GameObject> defences;
     public List<GameObject> enemies;
     public bool speedup;
-    public bool speedupnot;
     public float speedupamount;
     void Start()
     {
@@ -21,11 +20,11 @@ public class manager : MonoBehaviour
 
     void Update()
     {
-        if (speedup)
+        if (speedup && !MenusScript.pause)
         {
             Time.timeScale = speedupamount;
         }
-        else if (speedupnot)
+        else if (!MenusScript.pause) 
         {
             Time.timeScale = 1.0f;
         }
