@@ -12,6 +12,7 @@ public class manager : MonoBehaviour
     public List<GameObject> defences;
     public List<GameObject> enemies;
     public bool speedup;
+    public bool speedupnot;
     public float speedupamount;
     void Start()
     {
@@ -24,7 +25,7 @@ public class manager : MonoBehaviour
         {
             Time.timeScale = speedupamount;
         }
-        else
+        else if (speedupnot)
         {
             Time.timeScale = 1.0f;
         }
