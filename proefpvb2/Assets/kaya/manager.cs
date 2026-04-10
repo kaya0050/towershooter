@@ -11,6 +11,7 @@ public class manager : MonoBehaviour
     private GameObject defenceToPlace;
     public List<GameObject> defences;
     public List<GameObject> enemies;
+    public bool speedup;
 
     void Start()
     {
@@ -19,6 +20,14 @@ public class manager : MonoBehaviour
 
     void Update()
     {
+        if (speedup)
+        {
+            Time.timeScale = 2.0f;
+        }
+        else
+        {
+            Time.timeScale = 1.0f;
+        }
         defenceToPlace = defences[0];
         gridplace.objectToPlace = defenceToPlace;
 
