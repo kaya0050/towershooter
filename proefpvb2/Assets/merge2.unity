@@ -1678,6 +1678,8 @@ MonoBehaviour:
   - {fileID: 3144005980974766079, guid: c3bdc1113f5c14447bfbe20547b54009, type: 3}
   - {fileID: 3144005980974766079, guid: 0da019d8438634b419a8c33e03cdb3d8, type: 3}
   enemies: []
+  speedup: 0
+  speedupamount: 3
 --- !u!4 &782281316
 Transform:
   m_ObjectHideFlags: 0

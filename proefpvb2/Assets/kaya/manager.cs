@@ -12,7 +12,7 @@ public class manager : MonoBehaviour
     public List<GameObject> defences;
     public List<GameObject> enemies;
     public bool speedup;
-
+    public float speedupamount;
     void Start()
     {
         defenceToPlace = defences[0];
@@ -22,7 +22,7 @@ public class manager : MonoBehaviour
     {
         if (speedup)
         {
-            Time.timeScale = 2.0f;
+            Time.timeScale = speedupamount;
         }
         else
         {
