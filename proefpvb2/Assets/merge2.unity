@@ -2084,6 +2084,7 @@ MonoBehaviour:
   resources: 100
   switchkey: 113
   gridplace: {fileID: 1431868170}
+  MenusScript: {fileID: 782281319}
   defences:
   - {fileID: 3144005980974766079, guid: 644eeccd8e382a2488ef38b98738a4fd, type: 3}
   - {fileID: 3144005980974766079, guid: c3bdc1113f5c14447bfbe20547b54009, type: 3}
@@ -2200,6 +2201,7 @@ MonoBehaviour:
   bouwen: 1
   inBouwFase: 1
   inVerdedigingFase: 0
+  pause: 0
 --- !u!114 &782281320
 MonoBehaviour:
   m_ObjectHideFlags: 0

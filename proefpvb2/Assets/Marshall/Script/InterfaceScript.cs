@@ -22,7 +22,16 @@ public class InterfaceScript : MonoBehaviour
 
     void Update()
     {
-        aantalVijanden.text = $"{wave.verslagenVijanden} / {wave.teSpawnenVijanden}";
+        if (Input.GetKeyDown(KeyCode.Alpha2) && managerScript.speedup == false)
+        {
+            managerScript.speedup = true;
+        }
+        else
+        {
+            managerScript.speedup = false;
+        }
+
+            aantalVijanden.text = $"{wave.verslagenVijanden} / {wave.teSpawnenVijanden}";
         healthPlayer.text = $"{stats.health} / {stats.maxHealth}";
         healthDoel.text = $"{doel.health} / 100";
         kogels.text = $"{stats.kogels} / 30";
