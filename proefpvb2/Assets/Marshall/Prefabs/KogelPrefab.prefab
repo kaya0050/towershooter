@@ -151,9 +151,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6684668d604a042468371881c5c619c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 50
   destroyTimer: 2
   damage: 200
-  slowdown: 0
-  homing: 0
+  isSlowdown: 0
+  isHoming: 0
+  isBomb: 0
+  bomb: {fileID: 0}
   targetEnemy: {fileID: 0}

@@ -9,6 +9,7 @@ public class EnemyStats : MonoBehaviour
     public manager managerScript;
     public PhaseSwitchScript phases;
     public GameObject deathEffect;
+    public WaveSpawner wave;
 
     private void Start()
     {
@@ -16,6 +17,7 @@ public class EnemyStats : MonoBehaviour
         managerScript = FindFirstObjectByType<manager>();
         managerScript.enemies.Add(gameObject);
         phases = FindFirstObjectByType<PhaseSwitchScript>();
+        wave = FindFirstObjectByType<WaveSpawner>();
     }
 
     void Update()
@@ -25,6 +27,7 @@ public class EnemyStats : MonoBehaviour
             Instantiate(deathEffect,gameObject.transform.position,Quaternion.identity);
             managerScript.enemies.Remove(gameObject);
             phases.levendeEnemies--;
+            wave.verslagenVijanden++;
             managerScript.resources += 10;
             Destroy(gameObject);
             playerStats.bijEnemy = false;

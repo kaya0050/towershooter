@@ -17,21 +17,39 @@ public class WaveSpawner : MonoBehaviour
     public Transform spawnPoint;
 
     public PhaseSwitchScript phases;
+    public InterfaceScript hud;
 
     public GameObject normalEnemyPrefab;
     public GameObject bigEnemyPrefab;
     public GameObject smallEnemyPrefab;
+    public GameObject WinScherm;
 
-    private int currentWaveIndex = 0;
+    public int teSpawnenVijanden;
+    public int verslagenVijanden;
+    public int currentWaveIndex = 0;
     public bool isSpawning = false;
 
     void Start()
     {
+        
+    }
 
+    private void Update()
+    {
+        if (currentWaveIndex >= waves.Length)
+        {
+            WinScherm.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Time.timeScale = 0f;
+        }
     }
 
     public IEnumerator StartNextWave()
     {
+        hud.updateWave();
+        teSpawnenVijanden = 0;
+        verslagenVijanden = 0;
+
         if (currentWaveIndex >= waves.Length)
         {
             Debug.Log("Alle waves voltooid!");
@@ -42,7 +60,11 @@ public class WaveSpawner : MonoBehaviour
 
         Wave wave = waves[currentWaveIndex];
 
+        teSpawnenVijanden = wave.normalEnemies + wave.bigEnemies + wave.smallEnemies;
+
         Debug.Log("Start wave: " + (currentWaveIndex + 1));
+        Debug.Log("Te spawnen vijanden: " + teSpawnenVijanden);
+
 
         yield return StartCoroutine(SpawnEnemies(wave));
 
