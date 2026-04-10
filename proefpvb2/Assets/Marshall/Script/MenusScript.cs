@@ -51,6 +51,7 @@ public class MenusScript : MonoBehaviour
     {
         if (inBouwFase)
         {
+            pause = false;
             bouwen = true;
             pauseMenu.SetActive(false);
             verdedigingsButton.SetActive(true);
@@ -60,6 +61,7 @@ public class MenusScript : MonoBehaviour
         } 
         else if (inVerdedigingFase)
         {
+            pause = false;
             Cursor.lockState = CursorLockMode.Locked;
             bouwen = true;
             cameraMovement.enabled = true;
